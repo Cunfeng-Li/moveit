@@ -1,0 +1,474 @@
+<robot
+  name="robotnx">
+  <link name="base">
+      <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.001"/>
+      </geometry>
+      <material name="TransparentGreen"/>
+    </visual>
+  </link>
+  <link
+    name="base_footprint">
+    <inertial>
+      <origin
+        xyz="0 -1.11022302462516E-16 0.2335"
+        rpy="0 0 0" />
+      <mass
+        value="4.43804940190996" />
+      <inertia
+        ixx="0.0840137545279562"
+        ixy="0"
+        ixz="-5.15995121699252E-34"
+        iyy="0.0840137545279562"
+        iyz="1.83540288100747E-34"
+        izz="0.00671254972038881" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/base_footprint.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/base_footprint.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_footprint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base"/>
+    <child link="base_footprint"/>
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00215359092121389 -0.000793224055707253 0.502026253045581"
+        rpy="0 0 0" />
+      <mass
+        value="2.59431720777893" />
+      <inertia
+        ixx="0.3523313561318"
+        ixy="0.000539614748826498"
+        ixz="0.00816862739544271"
+        iyy="0.351242034325024"
+        iyz="-0.00125197561514695"
+        izz="0.0345525607669928" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/base_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/base_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_base"
+    type="fixed">
+    <origin
+      xyz="-0.0056343 4.8341E-05 0.467"
+      rpy="0 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="base_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+  name="right_arm_link_0">
+  </link>
+  <joint
+    name="right_arm_joint_0"
+    type="fixed">
+    <origin
+      xyz="0.0056343 -0.14605 0.919"
+      rpy="1.5708 0.30972 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_arm_link_0" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="right_arm_link_1">
+    <inertial>
+      <origin
+        xyz="-0.000327200298236352 -2.55351295663786E-15 -0.0359628362808112"
+        rpy="0 0 0" />
+      <mass
+        value="0.107035798022397" />
+      <inertia
+        ixx="0.000188785968780783"
+        ixy="-9.65617559869902E-20"
+        ixz="-1.68236451485032E-06"
+        iyy="0.000157075498484323"
+        iyz="-2.0294909416213E-18"
+        izz="0.000125761271549389" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_1.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_arm_joint_1"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.001"
+      rpy="0 0 0" />
+    <parent
+      link="right_arm_link_0" />
+    <child
+      link="right_arm_link_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="2"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="right_arm_link_2">
+    <inertial>
+      <origin
+        xyz="0.0650617938899946 -3.74272400138764E-06 0.00884791200857049"
+        rpy="0 0 0" />
+      <mass
+        value="0.255566385545041" />
+      <inertia
+        ixx="0.000245513850310981"
+        ixy="1.05634251961316E-07"
+        ixz="1.70511901395159E-05"
+        iyy="0.00127080560155649"
+        iyz="1.10284371133247E-09"
+        izz="0.00126072659023427" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_2.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_arm_joint_2"
+    type="revolute">
+    <origin
+      xyz="0.004 0 -0.084"
+      rpy="1.5708 -8.3503E-14 -1.5708" />
+    <parent
+      link="right_arm_link_1" />
+    <child
+      link="right_arm_link_2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.78"
+      upper="0.78"
+      effort="2"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="right_arm_link_3">
+    <inertial>
+      <origin
+        xyz="-0.0153020226123042 -7.16093850883226E-15 -0.0262980249667744"
+        rpy="0 0 0" />
+      <mass
+        value="0.0789715110556529" />
+      <inertia
+        ixx="7.19666232277629E-05"
+        ixy="-2.06032294090136E-17"
+        ixz="-1.68863370887186E-05"
+        iyy="0.000116283270534728"
+        iyz="-7.86755965145316E-18"
+        izz="0.000104168336512131" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_3.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0.00392156862745098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_3.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_arm_joint_3"
+    type="revolute">
+    <origin
+      xyz="0.204 0 0.01"
+      rpy="1.5708 4.4628E-13 -1.5708" />
+    <parent
+      link="right_arm_link_2" />
+    <child
+      link="right_arm_link_3" />
+    <axis
+      xyz="-0.0048522 0 0.99999" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="2"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="right_arm_link_4">
+    <inertial>
+      <origin
+        xyz="0.110286427795613 2.47783477371755E-05 -0.0247402908710841"
+        rpy="0 0 0" />
+      <mass
+        value="0.163592437656731" />
+      <inertia
+        ixx="9.17176029954367E-05"
+        ixy="-3.47471315225276E-07"
+        ixz="-1.44062350683503E-05"
+        iyy="0.00094063809588471"
+        iyz="-9.43711536876884E-09"
+        izz="0.000935522760826585" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_4.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_4.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_arm_joint_4"
+    type="revolute">
+    <origin
+      xyz="-0.02 0 -0.051"
+      rpy="0.081452 1.5708 -2.9777" />
+    <parent
+      link="right_arm_link_3" />
+    <child
+      link="right_arm_link_4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="2"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="right_arm_link_5">
+    <inertial>
+      <origin
+        xyz="-1.94289029309402E-15 0.0169801683752189 -0.0349097801090397"
+        rpy="0 0 0" />
+      <mass
+        value="0.0980468372542704" />
+      <inertia
+        ixx="0.000146622459303631"
+        ixy="1.29985969139334E-08"
+        ixz="-5.66526182214954E-11"
+        iyy="9.25528351448716E-05"
+        iyz="2.22452497831371E-05"
+        izz="0.000108961772352676" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_5.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.666666666666667 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_5.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_arm_joint_5"
+    type="revolute">
+    <origin
+      xyz="0.2275 0 -0.022412"
+      rpy="1.5752 -4.638E-13 -1.5708" />
+    <parent
+      link="right_arm_link_4" />
+    <child
+      link="right_arm_link_5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="2"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="right_arm_link_6">
+    <inertial>
+      <origin
+        xyz="0.0287664746286839 -8.65973959207622E-15 -0.018654876438622"
+        rpy="0 0 0" />
+      <mass
+        value="0.0342933650278287" />
+      <inertia
+        ixx="2.12655468606331E-05"
+        ixy="-2.43227496037542E-19"
+        ixz="-5.76746741176719E-07"
+        iyy="2.81264708549034E-05"
+        iyz="-1.12380096276964E-18"
+        izz="2.57654425067358E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_6.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robotnx/meshes/right_arm_link_6.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_arm_joint_6"
+    type="revolute">
+    <origin
+      xyz="0 0.017758 -0.055578"
+      rpy="3.1416 1.5664 -1.5708" />
+    <parent
+      link="right_arm_link_5" />
+    <child
+      link="right_arm_link_6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="2"
+      velocity="0.5" />
+  </joint>
+</robot>

@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: robotnx
+    relative_path: urdf/robotnx.urdf
+  SRDF:
+    relative_path: config/robotnx.srdf
+  CONFIG:
+    generated_timestamp: 1482891385

@@ -1,0 +1,12 @@
+controller_list:
+  - name: fake_right_arm_controller
+    joints:
+      - right_arm_joint_1
+      - right_arm_joint_2
+      - right_arm_joint_3
+      - right_arm_joint_4
+      - right_arm_joint_5
+      - right_arm_joint_6
+  - name: fake_right_hand_controller
+    joints:
+      - right_arm_joint_6

@@ -1,0 +1,5 @@
+<launch>
+  <include file ="$(find robotnx_moveit_config)/launch/demo.launch"/>
+  <node name="talker" pkg="robotnx_moveit_config" type="talker.py" args="$(find robotnx_moveit_config/scripts/talker.py"/>
+  <node name="moveit_ik" pkg="robotnx_moveit_config" type="neurobot_moveit_ik.py" args="$(find robotnx_moveit_config/scripts/neurobot_moveit_ik.py"/>
+</launch>
